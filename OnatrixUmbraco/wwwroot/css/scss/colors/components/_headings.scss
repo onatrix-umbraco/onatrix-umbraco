@@ -1,0 +1,68 @@
+@include heading-colors(
+    --color-primari,
+    --color-primari,
+    --color-secondary,
+    --color-primari,
+    --color-primari,
+    --color-secondary
+);
+
+@include theme-headings(
+    'dark',
+    --color-primari,
+    --color-primari,
+    --color-secondary,
+    --color-primari,
+    --color-primari,
+    --color-secondary
+);
+
+@include theme-headings(
+    'primari',
+    --color-light,
+    --color-light,
+    --color-secondary,
+    --color-light,
+    --color-light,
+    --color-secondary
+);
+
+@include theme-headings(
+    'secondary',
+    --color-primari,
+    --color-primari,
+    --color-accent,
+    --color-primari,
+    --color-primari,
+    --color-accent
+);
+
+@include theme-headings(
+    'accent',
+    --color-primari,
+    --color-primari,
+    --color-secondary,
+    --color-primari,
+    --color-primari,
+    --color-secondary
+);
+
+@include theme-headings(
+    'gray',
+    --color-primari,
+    --color-primari,
+    --color-secondary,
+    --color-primari,
+    --color-primari,
+    --color-secondary
+);
+
+@include theme-headings(
+    'light',
+    --color-primari,
+    --color-primari,
+    --color-secondary,
+    --color-primari,
+    --color-primari,
+    --color-secondary
+);
