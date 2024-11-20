@@ -1,0 +1,158 @@
+﻿@{
+	Layout = "mainLayout.cshtml";
+}
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var heroBackgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+    var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
+    var box1Image = Model?.Value<IPublishedContent>("box1Image")?.Url() ?? "";
+    var box2Image = Model?.Value<IPublishedContent>("box2Image")?.Url() ?? "";
+    var box3Image = Model?.Value<IPublishedContent>("box3Image")?.Url() ?? "";
+    var box4Image = Model?.Value<IPublishedContent>("box4Image")?.Url() ?? "";
+    var box5Image = Model?.Value<IPublishedContent>("box5Image")?.Url() ?? "";
+    var box6Image = Model?.Value<IPublishedContent>("box6Image")?.Url() ?? "";
+    var trustedBackgroundImage = Model?.Value<IPublishedContent>("trustedBackgroundImage")?.Url() ?? "";
+    var trustedImage = Model?.Value<IPublishedContent>("trustedImage")?.Url() ?? "";
+    var successImage = Model?.Value<IPublishedContent>("successImage")?.Url() ?? "";
+    var successBackgroundImage = Model?.Value<IPublishedContent>("successBackgroundImage")?.Url() ?? "";
+    var partnerImage1 = Model?.Value<IPublishedContent>("partnerImage1")?.Url() ?? "";
+    var partnerImage2 = Model?.Value<IPublishedContent>("partnerImage2")?.Url() ?? "";
+    var partnerImage3 = Model?.Value<IPublishedContent>("partnerImage3")?.Url() ?? "";
+    var partnerImage4 = Model?.Value<IPublishedContent>("partnerImage4")?.Url() ?? "";
+    var partnerImage5 = Model?.Value<IPublishedContent>("partnerImage5")?.Url() ?? "";
+    var partnerImage6 = Model?.Value<IPublishedContent>("partnerImage6")?.Url() ?? "";
+}
+
+
+
+
+
+
+<section class="hero" style="background-image: url(@heroBackgroundImage);">
+    <div class="container">
+        <div class="content">
+            <h1>@Model?.Value("heroHeadline")</h1>
+                <p>@Model?.Value("heroText")</p>
+                <a class="btn-primari" href="@Model?.Value("heroButtonUrl")">@Model?.Value("heroButtonText")</a>
+        </div>
+    </div>
+</section>
+
+<section class="about-us bg-light">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h6>@Model?.Value("aboutSectionTitle")</h6>
+                <h2>@Model?.Value("aboutHeadline")</h2>
+            </div>
+            <div class="text">
+                <q>@Model?.Value("aboutQuote")</q>
+                <p>@Model?.Value("aboutText")</p>
+            </div>
+            <div class="signature">
+                <img src="@signatureImage" alt="@Model?.Value("aboutSignature")">
+                <p>@Model?.Value("aboutSignature")</p>
+            </div>
+        </div>
+    </div>
+        
+    <div class="form-container"></div>
+</section>
+
+<section class="our-services bg-gray">
+    <div class="container">
+        <div class="headline">
+            <h6>@Model?.Value("servicesSectionTitle")</h6>
+            <h2>@Model?.Value("servicesHeadline")</h2>
+        </div>
+
+        <div class="content-grid">
+            <div class="service-container">
+                <h5>@Model?.Value("box1Title")</h5>
+                <img src="@box1Image" alt="">
+                <p>@Model?.Value("box1Text")</p>
+            </div>
+
+            <div class="service-container">
+                <h5>@Model?.Value("box2Title")</h5>
+                <img src="@box2Image" alt="">
+                <p>@Model?.Value("box2Text")</p>
+            </div>
+
+            <div class="service-container">
+                <h5>@Model?.Value("box3Title")</h5>
+                <img src="@box3Image" alt="">
+                <p>@Model?.Value("box3Text")</p>
+            </div>
+
+            <div class="service-container">
+                <h5>@Model?.Value("box4Title")</h5>
+                <img src="@box4Image" alt="">
+                <p>@Model?.Value("box4Text")</p>
+            </div>
+
+            <div class="service-container">
+                <h5>@Model?.Value("box5Title")</h5>
+                <img src="@box5Image" alt="">
+                <p>@Model?.Value("box5Text")</p>
+            </div>
+
+            <div class="service-container">
+                <h5>@Model?.Value("box6Title")</h5>
+                <img src="@box6Image" alt="">
+                <p>@Model?.Value("box6Text")</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="trusted">
+    <div class="container">
+        <div class="content" style="background-image: url(@trustedBackgroundImage);">
+            <div class="info">
+                <h2>@Model?.Value("trustedHeadline") <span>@Model?.Value("trustedClients")</span></h2>
+                <p>@Model?.Value("trustedText")</p>
+                <a class="btn-primari" href="@Model?.Value("trustedButtonUrl")">@Model?.Value("trustedButtonText")</a>
+            </div>
+        </div>
+        <img src="@trustedImage" alt="">
+    </div>
+</section>
+
+<section class="success-stories bg-primari">
+    <div class="container" style="background-image: url('/images/dot-map-2.svg');">
+        <div class="headline">
+            <h6>@Model?.Value("successSectionTitle")</h6>
+            <h2>@Model?.Value("successHeadline")</h2>
+        </div>
+        <div class="content">
+            <div class="story-container">
+                <h3>@Model?.Value("success1Number")</h3>
+                <h5>@Model?.Value("success1Text")</h5>
+            </div>
+            <div class="story-container">
+                <h3>@Model?.Value("success2Number")</h3>
+                <h5>@Model?.Value("success2Text")</h5>
+            </div>
+            <div class="story-container">
+                <h3>@Model?.Value("success3Number")</h3>
+                <h5>@Model?.Value("success3Text")</h5>
+            </div>
+        </div>
+        <img src="@successImage" alt="">
+    </div>
+</section>
+
+<section class="partners" class="bg-light">
+    <div class="container">
+        <img src="@partnerImage1" alt="">
+        <img src="@partnerImage2" alt="">
+        <img src="@partnerImage3" alt="">
+        <img src="@partnerImage4" alt="">
+        <img src="@partnerImage5" alt="">
+        <img src="@partnerImage6" alt="">
+    </div>
+</section>

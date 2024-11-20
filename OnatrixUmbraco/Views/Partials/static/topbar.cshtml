@@ -1,0 +1,23 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "Office location not set"; 
+    var facebookLink = settings?.Value<string>("facebookLink") ?? "";
+    var twitterLink = settings?.Value<string>("twitterLink") ?? "";
+    var linkedInLink = settings?.Value<string>("linkedInLink") ?? "";
+}
+ 
+<div class="topbar bg-primari">
+    <div class="container">
+        <p>@officeLocation</p>
+        <div class="socials">
+            <a class="social" href="@facebookLink" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="social" href="@twitterLink" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a class="social" href="@linkedInLink" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</div>

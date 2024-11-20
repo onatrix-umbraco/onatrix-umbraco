@@ -1,0 +1,83 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = @Model?.Value("pageTitle") ?? null;
+}
+
+
+@{
+    var contentBackgroundImage1 = Model?.Value<IPublishedContent>("contentBackgroundImage1")?.Url() ?? "";
+    var contentBackgroundImage2 = Model?.Value<IPublishedContent>("contentBackgroundImage2")?.Url() ?? "";
+    var contentBackgroundImage3 = Model?.Value<IPublishedContent>("contentBackgroundImage3")?.Url() ?? "";
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "Office location not set";
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "Office Phone Number not set";
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "Office Email Address not set";
+    var partnerImage1 = Model?.Value<IPublishedContent>("partnerImage1")?.Url() ?? "";
+    var partnerImage2 = Model?.Value<IPublishedContent>("partnerImage2")?.Url() ?? "";
+    var partnerImage3 = Model?.Value<IPublishedContent>("partnerImage3")?.Url() ?? "";
+    var partnerImage4 = Model?.Value<IPublishedContent>("partnerImage4")?.Url() ?? "";
+    var partnerImage5 = Model?.Value<IPublishedContent>("partnerImage5")?.Url() ?? "";
+    var partnerImage6 = Model?.Value<IPublishedContent>("partnerImage6")?.Url() ?? "";
+}
+
+<section class="contact-info bg-grey">
+    <div class="container">
+        <div class="picture">
+            <img class="dots" src="@contentBackgroundImage1" alt="">
+            <img class="form" src="@contentBackgroundImage2" alt="">
+            <img class="man" src="@contentBackgroundImage3" alt="">
+        </div>
+        <div class="content">
+            <h2>@Model?.Value("contactHeadline")</h2>
+            <div class="contact-box">
+                <i class="fa-light fa-location-dot"></i>
+                <div class="text">
+                    <h5>Office Location</h5>
+                    <p>@officeLocation</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <i class="fa-light fa-phone-flip"></i>
+                <div class="text">
+                    <h5>Phone number</h5>
+                    <p class="italic">@officePhoneNumber</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <i class="fa-light fa-envelope"></i>
+                <div class="text">
+                    <h5>E-mail address</h5>
+                    <p class="italic">@officeEmailAddress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9158.328213283019!2d18.052463579455925!3d59.33164146039643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d6061b1b2ef%3A0x58a3d2584e80b208!2sKlarabergsviadukten%2011%2C%20111%2064%20Stockholm!5e0!3m2!1ssv!2sse!4v1731337466233!5m2!1ssv!2sse" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<section class="request-a-call-back">
+    <div class="container">
+        <h6>REQUEST A CALL BACK</h6>
+        <h2>Let us know about your next project</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, ligula semper sagittis lobortis, eros metus efficitur purus</p>
+    </div>
+</section>
+
+<section class="partners bg-light>
+    <div class="container">
+        <img src="@partnerImage1" alt="">
+        <img src="@partnerImage2" alt="">
+        <img src="@partnerImage3" alt="">
+        <img src="@partnerImage4" alt="">
+        <img src="@partnerImage5" alt="">
+        <img src="@partnerImage6" alt="">
+    </div>
+</section>

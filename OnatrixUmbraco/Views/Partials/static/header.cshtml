@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "pages/settings") ?? null;
+    var siteName = settings?.Value<string>("siteName") ?? "";
+    var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? "Can't find image";
+}
+
+<div class="navbar bg-light">
+    <div class="container">
+        <img src="@siteLogotype" alt="">
+    
+        <div class="menu">
+            <a class="menu-link" href="/about-us-1">About</a>
+            <a class="menu-link" href="#">Services</a>
+            <a class="menu-link" href="#">Projects</a>
+            <a class="menu-link" href="/contact-us">Contact</a>
+        </div>
+        
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+</div>

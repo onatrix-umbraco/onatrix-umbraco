@@ -1,0 +1,35 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solutions for Your Business" : "Onatrix - Financial Solutions for Your Business";
+}
+
+<!DOCTYPE html>
+<html lang="sv-se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/scss/main.css">
+    <link rel="stylesheet" href="/css/scss/colors/theme.css">
+
+    <title>@pageTitle</title>
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("partials/static/topbar.cshtml")
+        <header>@await Html.PartialAsync("partials/static/header.cshtml")</header>
+
+        <main>
+            @RenderBody()  <!-- This will render the content from the child views -->
+        </main>
+
+        <footer>
+            @await Html.PartialAsync("partials/static/footer.cshtml")
+        </footer>
+
+    </div>
+</body>
+</html>

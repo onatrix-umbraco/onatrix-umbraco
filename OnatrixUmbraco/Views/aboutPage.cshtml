@@ -1,0 +1,123 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = @Model?.Value("pageTitle") ?? null;
+}
+
+
+@{ 
+    var aboutImage = Model?.Value<IPublishedContent>("aboutImage")?.Url() ?? "";
+    var testimonialImage = Model?.Value<IPublishedContent>("testimonialImage")?.Url() ?? "";
+    var member1Image = Model?.Value<IPublishedContent>("member1Image")?.Url() ?? "";
+    var member2Image = Model?.Value<IPublishedContent>("member2Image")?.Url() ?? "";
+    var member3Image = Model?.Value<IPublishedContent>("member3Image")?.Url() ?? "";
+    var member4Image = Model?.Value<IPublishedContent>("member4Image")?.Url() ?? "";
+    var member5Image = Model?.Value<IPublishedContent>("member5Image")?.Url() ?? "";
+    var member6Image = Model?.Value<IPublishedContent>("member6Image")?.Url() ?? "";
+    var member7Image = Model?.Value<IPublishedContent>("member7Image")?.Url() ?? "";
+	var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "Office location not set";
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "Office Phone Number not set";
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "Office Email Address not set";
+}
+
+<section class="founder">
+    <div class="container">
+        <div class="picture">
+            <img src="@aboutImage" alt="">
+            <p>@Model?.Value("aboutImageDescription")</p>
+        </div>
+        <div class="content">
+            <q>@Model?.Value("aboutQuote")</q>
+            <p>@Model?.Value("aboutText")</p>
+        </div>
+    </div>
+</section>
+
+<section class="reviews bg-gray">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h6>@Model?.Value("testimonialSectionTitle")</h6>
+                <h2>@Model?.Value("testimonialHeadline")</h2>
+            </div>
+            <p class="text">@Model?.Value("testimonialText")</p>
+            <div class="stars">
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+            </div>
+                <p class="name">@Model?.Value("testimonialName")</p>
+                <p class="work">@Model?.Value("testimonialCompany")</p>
+        </div>
+        <img src="@testimonialImage" alt="">
+    </div>
+</section>
+
+<section class="our-experts">
+    <div class="container">
+        <div class="headline">
+            <h6>@Model?.Value("teamSectionTitle")</h6>
+            <h2>@Model?.Value("teamHeadline")</h2>
+        </div>
+        <div class="first-row">
+            <div class="expert-card">
+                <img src="@member1Image" alt="">
+                <div class="info">
+                    <h4>@Model?.Value("member1Name")</h4>
+                    <p>@Model?.Value("member1Info")</p>
+                </div>
+            </div>
+            <div class="expert-card">
+            <img src="@member2Image" alt="">
+                <div class="info">
+                    <h4>@Model?.Value("member2Name")</h4>
+                    <p>@Model?.Value("member2Info")</p>
+                </div>
+            </div>
+            <div class="expert-card">
+                <img src="@member3Image" alt="">
+                <div class="info">
+                    <h4>@Model?.Value("member3Name")</h4>
+                    <p>@Model?.Value("member3Info")</p>
+                </div>
+            </div>
+        </div>
+        <div class="second-row">
+            <div class="expert-card">
+                <img src="@member4Image" alt="">
+                <div class="info">
+                    <h5>@Model?.Value("member4Name")</h5>
+                    <p>@Model?.Value("member4Info")</p>
+                </div>
+            </div>
+            <div class="expert-card">
+                <img src="@member5Image" alt="">
+                <div class="info">
+                    <h5>@Model?.Value("member5Name")</h5>
+                    <p>@Model?.Value("member5Info")</p>
+                </div>
+            </div>
+            <div class="expert-card">
+                <img src="@member6Image" alt="">
+                <div class="info">
+                    <h5>@Model?.Value("member6Name")</h5>
+                    <p>@Model?.Value("member6Info")</p>
+                </div>
+            </div>
+            <div class="expert-card">
+                <img src="@member7Image" alt="">
+                    <div class="info">
+                        <h5>@Model?.Value("member7Name")</h5>
+                        <p>@Model?.Value("member7Info")</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -257,18 +257,18 @@ footer p, footer span {
   margin: 30px;
 }
 
-.our-story {
+.trusted {
   padding-top: 100px;
 }
-.our-story .container .content {
+.trusted .container .content {
   padding-bottom: 90px;
 }
-.our-story .container .content .info {
+.trusted .container .content .info {
   text-align: center;
   width: 50%;
   margin: auto;
 }
-.our-story .container .content .info p {
+.trusted .container .content .info p {
   margin-top: 50px;
   margin-bottom: 40px;
 }
