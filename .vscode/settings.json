@@ -1,4 +1,5 @@
 {
     "appService.preDeployTask": "publish-release",
-    "appService.deploySubpath": "OnatrixUmbraco/bin/Release/net9.0/publish"
+    "appService.deploySubpath": "OnatrixUmbraco/bin/Release/net9.0/publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/6a7e827f-6751-415d-9a29-45a5f952aca1/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/onatrix-umbraco-thea"
 }
